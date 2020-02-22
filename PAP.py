@@ -5,7 +5,7 @@ import matplotlib.figure
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, 
                                                NavigationToolbar2TkAgg)
-#from PIL import ImageTk, Image
+from PIL import ImageTk, Image
 plt.style.use('tableau-colorblind10')
 sym.init_printing(use_latex = 'mathjax')
 
@@ -417,13 +417,16 @@ def eleccion2(*args):
         name = diasfestivos[idx]
         #code = countrycodes[idx]
         if name == 'Año Nuevo':
-            comp2dias(["-12-30", "-12-31", "-01-01", "-01-02", "-01-03"])
+            comp2dias(["-12-27", "-12-28", "-12-29", "-12-30", "-12-31", "-01-01", "-01-02", "-01-03", \
+                       "-01-04", "-01-05", "-01-06"])
             
         elif name == 'Aniversario de la Constitución':
-            comp2dias(["-02-03", "-02-04", "-02-05", "-02-06", "-02-07"])
+            comp2dias(["-01-31", "-02-01", "-02-02", "-02-03", "-02-04", "-02-05", "-02-06", "-02-07", \
+                       "-02-08", "-02-09", "-02-10"])
         
         elif name == 'Natalicio Benito Juárez':
-            comp2dias(["-03-19", "-03-20", "-03-21", "-03-22", "-03-23"])
+            comp2dias(["-03-16", "-03-17", "-03-18", "-03-19", "-03-20", "-03-21", "-03-22", "-03-23", \
+                       "-03-24", "-03-25", "-03-26"])
         
         elif name == 'Jueves Santo':
             d = []
@@ -460,28 +463,36 @@ def eleccion2(*args):
             comp2diasDS(d)
         
         elif name == 'Día del trabajo':
-            comp2dias(["-04-29", "-04-30", "-05-01", "-05-02", "-05-03"])
+            comp2dias(["-04-26", "-04-27", "-04-28", "-04-29", "-04-30", "-05-01", "-05-02", "-05-03", \
+                       "-05-04", "-05-05", "-05-06"])
             
         elif name == 'Día de la madre':
-            comp2dias(["-05-08", "-05-09", "-05-10", "-05-11", "-05-12"])
+            comp2dias(["-05-05", "-05-06", "-05-07", "-05-08", "-05-09", "-05-10", "-05-11", "-05-12", \
+                       "-05-13", "-05-14", "-05-15"])
             
         elif name == 'Día de la Independencia':
-            comp2dias(["-09-14", "-09-15", "-09-16", "-09-17", "-09-18"])
+            comp2dias(["-09-11", "-09-12", "-09-13", "-09-14", "-09-15", "-09-16", "-09-17", "-09-18", \
+                       "-09-19", "-09-20", "-09-21"])
         
         elif name == 'Día de la Virgen de Zapopan':
-            comp2dias2(["-10-10", "-10-11", "-10-12", "-10-13", "-10-14"])
+            comp2dias2(["-10-07", "-10-08", "-10-09", "-10-10", "-10-11", "-10-12", "-10-13", "-10-14", \
+                        "-10-15", "-10-16", "-10-17"])
         
         elif name == 'Día de muertos':
-            comp2dias2(["-10-31", "-11-01", "-11-02", "-11-03", "-11-04"])
+            comp2dias2(["-10-28", "-10-29", "-10-30", "-10-31", "-11-01", "-11-02", "-11-03", "-11-04", \
+                        "-11-05", "-11-06", "-11-07"])
         
         elif name == 'Día de la Revolución':
-            comp2dias2(["-11-18", "-11-19", "-11-20", "-11-21", "-11-22"])
+            comp2dias2(["-11-15", "-11-16", "-11-17", "-11-18", "-11-19", "-11-20", "-11-21", "-11-22", \
+                        "-11-23", "-11-24", "-11-25"])
             
         elif name == 'Día de la Virgen de Guadalupe':
-            comp2dias2(["-12-10", "-12-11", "-12-12", "-12-13", "-12-14"])
+            comp2dias2(["-12-07", "-12-08", "-12-09", "-12-10", "-12-11", "-12-12", "-12-13", "-12-14", \
+                        "-12-15", "-12-16", "-12-17"])
             
         elif name == 'Navidad':
-            comp2dias2(["-12-23", "-12-24", "-12-25", "-12-26", "-12-27"])
+            comp2dias2(["-12-20", "-12-21", "-12-22", "-12-23", "-12-24", "-12-25", "-12-26", "-12-27", \
+                        "-12-28", "-12-29", "-12-30"])
         
         else:
             pass  
@@ -541,7 +552,7 @@ def comp2dias2(d):
     fig = matplotlib.figure.Figure(figsize=(7,7))
     pl = fig.add_subplot(111)
     xtick = []
-    for i in range(14, 19, 1):
+    for i in range(15, 19, 1):
         if len(str(i)) == 1:
             for j in range(len(d)):
                 dia = "200" + str(i) + str(d[j])
@@ -622,7 +633,7 @@ fr3 = Tk.Frame(root, borderwidth=5, relief="sunken", width=600, height=550)
 fr3.grid(column = 2, row = 0)
 fr3.pack_propagate(0)
 
-'''
+
 def cat():
     for widget in fr3.winfo_children():
         widget.destroy()
@@ -632,7 +643,6 @@ def cat():
     img.image = render
     img.place(x=0, y=0)
 
-'''
 
 b = Tk.Button(fr2, text="Comportamiento del día en 17 años", font = 'arial, 12', command=eleccion, \
               relief=('raised'))
@@ -644,7 +654,7 @@ b2 = Tk.Button(fr2, text="Comparación con otros días", font = 'arial, 12', com
 b2.grid(column=1, row=1)
 b2.pack(fill = Tk.BOTH, padx = 5, pady = 5, expand = 1)
 
-b3 = Tk.Button(fr2, text="?", font = 'arial, 12',\
+b3 = Tk.Button(fr2, text="?", font = 'arial, 12', command = cat,\
                relief=('raised'))
 b3.grid(column=1, row=2)
 b3.pack(fill = Tk.BOTH, padx = 5, pady = 5, expand = 1)

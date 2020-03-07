@@ -3,9 +3,15 @@ import tkinter as Tk
 import sympy as sym
 import matplotlib.figure 
 import matplotlib.pyplot as plt
+<<<<<<< Updated upstream
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, 
                                                NavigationToolbar2TkAgg)
 from PIL import ImageTk, Image
+=======
+#from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg#, 
+                                               #NavigationToolbar2TkAgg)
+#from PIL import ImageTk, Image
+>>>>>>> Stashed changes
 plt.style.use('tableau-colorblind10')
 sym.init_printing(use_latex = 'mathjax')
 
@@ -672,3 +678,4 @@ for i in range(1, len(diasfestivos), 2):
     lbox.itemconfigure(i, background='#DDDDDD')
 
 root.mainloop()
+
